@@ -31,7 +31,7 @@ class Solution {
     public String multiply(String num1, String num2) {
         
          char[] chNum1 = num1.toCharArray();
-         char[] chNum2 = num2.toCharArray();
+         char[] chNum2 = num2.toCharArray(); 
         
          if (chNum1.length == 0 || chNum2.length == 0)
              return "0";
