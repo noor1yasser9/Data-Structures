@@ -18,6 +18,8 @@
   // 0 <= strs[i].length <= 200
   // strs[i] consists of only lower-case English letters.
 
+// Question Link
+// https://leetcode.com/problems/longest-common-prefix/
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
