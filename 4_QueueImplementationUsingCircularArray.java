@@ -4,6 +4,12 @@
 // For implementing deque, we need to keep track of two indices, front and rear. 
 // We enqueue(push) an item at the rear or the front end of qedue and dequeue(pop) an item from both rear and front end.
 
+// Time Complexity: Time complexity of enQueue(), deQueue() operation is O(1) as there is no loop in any of the operation.
+// Applications: 
+	// Memory Management: The unused memory locations in the case of ordinary queues can be utilized in circular queues.
+	// Traffic system: In computer controlled traffic system, circular queues are used to switch on the traffic lights one by one repeatedly as per the time set.
+	// CPU Scheduling: Operating systems often maintain a queue of processes that are ready to execute or that are waiting for a particular event to occur.
+
 import java.util.*;
 
 class ArrayQueueTypeMain {
