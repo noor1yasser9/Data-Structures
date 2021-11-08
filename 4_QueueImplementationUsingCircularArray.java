@@ -4,7 +4,23 @@
 // For implementing deque, we need to keep track of two indices, front and rear. 
 // We enqueue(push) an item at the rear or the front end of qedue and dequeue(pop) an item from both rear and front end.
 
+import java.util.*;
 
+class ArrayQueueTypeMain {
+    public static void main(String[] args) {
+    ArrayQueueType q1 = new ArrayQueueType(5);
+	q1.addQueue(10);
+	q1.addQueue(20);
+	q1.addQueue(30);
+	q1.addQueue(40);
+	q1.addQueue(50);
+	q1.deleteQueue();
+	q1.printQueue();
+	System.out.println(q1.frontQueue());
+	System.out.println(q1.rearQueue());
+	System.out.println(q1.queueSearch(30));
+    }
+}
 
 class ArrayQueueType{
   int rear;
