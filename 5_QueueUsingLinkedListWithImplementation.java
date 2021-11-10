@@ -72,3 +72,24 @@ class LinkedQueue<T> {
         return length;
     }
 }
+
+
+public class LinkedQueueMain {
+
+    public static void main(String[] args) {
+        LinkedQueue<Integer> q1 = new LinkedQueue<Integer>();
+
+        for (int i = 1; i <= 20; i++) {
+            q1.enqueue(i);
+        }
+
+        System.out.println("front->" + q1.front());
+        System.out.println("rear->" + q1.rear());
+
+        q1.display();
+        q1.clearQueue();
+        q1.display();
+
+    }
+}
+
