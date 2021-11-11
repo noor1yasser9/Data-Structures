@@ -1,4 +1,25 @@
 
+
+public class ArrayListTypeMain {
+
+    public static void main(String[] args) {
+        ArrayListType alt = new ArrayListType(10);
+        alt.insertAtEnd(10);
+        alt.insertAtEnd(20);
+        alt.insertAtEnd(30);
+        alt.insertAtEnd(40);
+        alt.insertAtEnd(40);
+        alt.insertAtEnd(50);
+        alt.removeAtPos(0);
+        alt.removeAtPos(4);
+        alt.removeAtPos(3);
+        alt.clear();
+        alt.deleteList();
+        alt.print();
+    }
+}
+
+
 class ArrayListType {
 
     private int[] list;
