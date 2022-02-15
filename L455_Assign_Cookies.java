@@ -29,3 +29,28 @@ Constraints:
 1 <= g[i], s[j] <= 231 - 1
 
 */
+
+
+
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        
+    
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int nC = g.length;
+        int nCo = s.length;
+        int cookie = 0, answer = 0;
+        for(int i=0;i<nC && cookie<nCo;){
+            if(s[cookie] >= g[i]){
+                i++;
+                answer++;
+            }
+            cookie++;
+        }
+        return answer;
+        
+        
+    }
+}
+
