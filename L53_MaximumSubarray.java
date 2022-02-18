@@ -25,3 +25,19 @@ Constraints:
 -104 <= nums[i] <= 104
 
 */
+
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int maxFar = Integer.MIN_VALUE, maxHere = 0;
+ 
+        for (int i = 0; i < nums.length; i++){
+            maxHere = maxHere + nums[i];
+            if (maxFar < maxHere)
+                maxFar = maxHere;
+            if (maxHere < 0)
+                maxHere = 0;
+        }
+        return maxFar;
+    }
+}
