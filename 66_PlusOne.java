@@ -32,3 +32,39 @@ Constraints:
 digits does not contain any leading 0's.
 
 */
+
+class Solution {
+    public int[] plusOne(int[] digits) {
+         
+//         cause a problem in [9,8,7,6,5,4,3,2,1,0]
+//         int num = 0;  
+//         for (int digit : digits) {
+//             num = 10*num + digit;
+//         } 
+//         int n=num+1; 
+//         String str=String.valueOf(n); 
+//         int arr[]=new int[str.length()];  
+//         for(int i=0;i<str.length();i++){  
+//             arr[i]=str.charAt(i)-'0';  
+//         }  
+//         return arr;  
+     
+            boolean carry = true;
+
+            for (int i = digits.length - 1; carry && i >= 0; i--) {
+                carry = digits[i] == 9;
+                digits[i] = carry ? 0 : digits[i] + 1;
+            }
+
+            if (carry) {
+                int[] tmp = new int[digits.length + 1];
+                tmp[0] = 1;
+                System.arraycopy(digits, 0, tmp, 1, digits.length);
+                digits = tmp;
+            }
+
+            return digits;
+    }
+}
+
+
