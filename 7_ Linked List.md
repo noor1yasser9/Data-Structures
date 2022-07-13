@@ -149,3 +149,90 @@
         }
     }
     ```
+    
+    # Circular linked lists.
+
+**circular linked list is a variation of a linked list in which the last node points to the first node, completing a full circle of nodes.**
+
+- **Example Code**
+    
+    ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e32d2f20-ccd1-4751-8a8d-c4d2db83222f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220713%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220713T181538Z&X-Amz-Expires=86400&X-Amz-Signature=bd0365b5de0a45db4d72324bd738b18bbfba5148bffe0da8fa0aed363a46306e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+    
+    - Define a Node class which represents a node in the list. It has two properties data and next which will point to the next node.
+    - Define another class for creating the circular linked list and it has two nodes: head and tail. It has two methods: add() and display() .
+    - add() will add the node to the list:
+        - It first checks whether the head is null, then it will insert the node as the head.
+        - Both head and tail will point to the newly added node.
+        - If the head is not null, the new node will be the new tail, and the new tail will point to the head as it is a circular linked list.
+    
+    a. display() will show all the nodes present in the list.
+    
+    - Define a new node 'current' that will point to the head.
+    - Print current.data till current will points to head
+    - Current will point to the next node in the list in each iteration.
+    
+    ```java
+    public class CreateList {  
+        //Represents the node of list.  
+        public class Node{  
+            int data;  
+            Node next;  
+            public Node(int data) {  
+                this.data = data;  
+            }  
+        }  
+      
+        //Declaring head and tail pointer as null.  
+        public Node head = null;  
+        public Node tail = null;  
+      
+        //This function will add the new node at the end of the list.  
+        public void add(int data){  
+            //Create new node  
+            Node newNode = new Node(data);  
+            //Checks if the list is empty.  
+            if(head == null) {  
+                 //If list is empty, both head and tail would point to new node.  
+                head = newNode;  
+                tail = newNode;  
+                newNode.next = head;  
+            }  
+            else {  
+                //tail will point to new node.  
+                tail.next = newNode;  
+                //New node will become new tail.  
+                tail = newNode;  
+                //Since, it is circular linked list tail will point to head.  
+                tail.next = head;  
+            }  
+        }  
+      
+        //Displays all the nodes in the list  
+        public void display() {  
+            Node current = head;  
+            if(head == null) {  
+                System.out.println("List is empty");  
+            }  
+            else {  
+                System.out.println("Nodes of the circular linked list: ");  
+                 do{  
+                    //Prints each node by incrementing pointer.  
+                    System.out.print(" "+ current.data);  
+                    current = current.next;  
+                }while(current != head);  
+                System.out.println();  
+            }  
+        }  
+      
+        public static void main(String[] args) {  
+            CreateList cl = new CreateList();  
+            //Adds data to the list  
+            cl.add(1);  
+            cl.add(2);  
+            cl.add(3);  
+            cl.add(4);  
+            //Displays all the nodes present in the list  
+            cl.display();  
+        }  
+    }
+    ```
