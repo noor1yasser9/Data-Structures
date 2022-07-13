@@ -1,8 +1,8 @@
-// ** Types of Linked list
-//   1- Singly Linked list  is the commonly used linked list in programs.
-//   2- Doubly Linked list  As the name suggests, the doubly linked list contains two pointers.
-//   3- Circular Linked list  is a variation of a singly linked list.
-//   4- Doubly Circular Linked list  has the features of both the circular linked list and doubly linked list.
+# Types of Linked list
+- Singly Linked list  is the commonly used linked list in programs.
+- Doubly Linked list  As the name suggests, the doubly linked list contains two pointers.
+- Circular Linked list  is a variation of a singly linked list.
+- Doubly Circular Linked list  has the features of both the circular linked list and doubly linked list.
 
 
 
@@ -50,5 +50,102 @@
      second.next = third; // Link first node with the second node  
      list.display();  
          }  
+    }
+    ```
+
+
+# Doubly linked lists.
+
+**Doubly Linked List is a type of Linked List where each node apart from storing data has two links.**
+
+- **Example Code**
+    
+    ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/860793d4-c48c-4ecd-87dd-84979c1c168b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220713%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220713T170141Z&X-Amz-Expires=86400&X-Amz-Signature=47dc4b206977ebd649f0c40cd4298d0621bd35c4d981b9431f9be721a48b0864&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+    
+    - Define a Node class which represents a node in the linked list. It should have 3 properties i.e. previous node, data, and the next node
+    - Define another class to create a Doubly Linked List with two nodes i.e head and tail. Initially these values will be null.
+    - Create a function for adding nodes in the linked list,
+    - It will first check whether head is null and then insert node as head.
+    - Both head and tail will then point to the new node.
+    - If the tail is not null, the new node will be inserted at the list end in such a way that the pointer of the new node will point to the tail.
+    - Thus, the new node will become a new tail.
+    
+    ```java
+    public class DLL {
+        class Node{
+            public int data;
+            public Node prevNode;
+            public Node nextNode;
+            public Node(int data) {
+             this.data = data;
+            }
+        }
+    public void displayNode() {
+            Node tempNode = headNode;
+            while (tempNode != null) {
+                System.out.print(tempNode.data + "–>");
+                tempNode = tempNode.nextNode;
+            }
+            System.out.println("END");
+        }
+        Node headNode, tailNode = null;
+            public void addNode(int data) {
+            Node newNode = new Node(data);
+            if(headNode == null) {
+                headNode = tailNode = newNode;
+                headNode.prevNode = null;
+                tailNode.nextNode = null;
+            }
+            else {
+                tailNode.nextNode = newNode;
+                newNode.prevNode = tailNode;
+                tailNode = newNode;
+                tailNode.nextNode = null;
+            }
+        }
+        public void deleteInitialNode() {
+            if(headNode == null) {
+                System.out.println("Doubly Linked List is empty");
+                return;
+            }
+            else {
+                if(headNode != tailNode) {
+                    headNode = headNode.nextNode;
+                }
+                else {
+                    headNode = tailNode = null;
+                }
+            }
+        }
+        void printNode() {
+            Node currNode = headNode;
+            if(headNode == null) {
+                System.out.println("Doubly Linked List is empty");
+                return;
+            }
+            while(currNode != null)
+            {
+                System.out.print(currNode.data + " ");
+                currNode = currNode.nextNode;
+            }
+                System.out.println();
+            }
+            public static void main(String[] args) {
+                DLL doublyLL = new DLL();
+                doublyLL.addNode(3);
+                doublyLL.addNode(5);
+                doublyLL.addNode(7);
+                doublyLL.addNode(9);
+                doublyLL.addNode(11);
+                System.out.println("Doubly linked list: ");
+                doublyLL.printNode();
+                doublyLL.addNode(15);
+                doublyLL.addNode(17);
+                doublyLL.addNode(19);
+                doublyLL.deleteInitialNode();
+                doublyLL.addNode(21);
+                System.out.println("Doubly Linked List after deleting at the beginning: ");
+                doublyLL.printNode();
+        }
     }
     ```
